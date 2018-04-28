@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   # root :to => "welcome#index"
 
   get 'static_pages/home'
-  get 'static_pages/help'
+  # get 'static_pages/help'
+  get '/help', to: 'static_pages#help'
   get 'static_pages/about'
   root 'static_pages#home'
+  get 'static_pages/contact'
 end
