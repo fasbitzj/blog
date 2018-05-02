@@ -1,6 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+$log-color: #fff;
+$log-hover-color: #b06bff;
+$gray-medium-light: #eaeaea;
+$footer-color: #777;
+$footer-a-color: #79CDCD;
+$footer-a-hover-color: #b06bff;
+
 /* universal */
 body {
   padding-top: 60px;
@@ -56,66 +63,31 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: $log-color;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: #fff;
+    color: $log-hover-color;
     text-decoration: none;
   }
 }
-
-/*#logo:hover {
-  color: #fff;
-  text-decoration: none;
-}*/
 
 img {
   display: none;
 }
 
 /* footer */
-/*
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
-}
-
-footer a {
-  color: #555;
-}
-
-footer a:hover {
-  color: #222;
-}
-
-footer small {
-  float: left;
-}
-
-footer ul {
-  float: right;
-  list-style: none;
-}
-
-footer ul li {
-  float: left;
-  margin-left: 15px;
-}*/
-
-footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
-  color: #777;
+  border-top: 1px solid $gray-medium-light;
+  color: $footer-color;
   a {
-    color: #555;
+    color: $footer-a-color;
     &:hover {
-      color: #222;
+      color: $footer-a-hover-color;
     }
   }
   small {
