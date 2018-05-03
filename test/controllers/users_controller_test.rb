@@ -52,4 +52,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
+
+  test "valid signup infomation" do
+    get signup_path
+    assert_difference 'User.count' do
+      post users_path, params:{user:{name:"test user",
+                                    email: "testuser@gmail.com",
+                                    password: "test123",
+                                    password_confirmation: "test123"}}
+    end
+    follow_redirect!
+    assert_template "users/new"
+    assert_not flash.FILL_IN
+  end
 end
