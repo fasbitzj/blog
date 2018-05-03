@@ -9,6 +9,7 @@ gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'b
 
 gem 'bootstrap-sass', '3.3.6'
 gem 'rails-controller-testing'
+gem 'jquery-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
