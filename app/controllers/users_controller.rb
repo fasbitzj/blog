@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
 
   def new
     @user = User.new
@@ -14,7 +16,21 @@ class UsersController < ApplicationController
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
-      # redirect_to user_url(@user)  # 与上一行代码等价
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      # 处理更新成功的情况
+      flash[:success] = "Profile update"
+      redirect_to @user
     else
       render 'new'
     end
@@ -25,4 +41,21 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
     end
+
+  # 前置过滤
+
+  # 确保用户已登录
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
+  # 确保是正确的用户
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
 end
