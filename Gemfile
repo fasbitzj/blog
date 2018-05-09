@@ -7,6 +7,12 @@ ruby '2.4.4'
 gem 'rails', '~> 5.2.0'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
+# 自动生成用户
+gem 'faker',  '1.8.7'
+# 分页
+gem 'nokogiri',                '1.8.2'
+gem 'will_paginate',           '3.1.6'
+
 gem 'bootstrap-sass', '3.3.6'
 gem 'rails-controller-testing'
 gem 'jquery-rails'
